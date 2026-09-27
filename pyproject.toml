@@ -1,0 +1,27 @@
+[project]
+name = "camera-module-3-test"
+version = "0.1.0"
+description = "LAN MJPEG preview server for Raspberry Pi Camera Module 3"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.1,<4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0,<9",
+]
+
+[project.scripts]
+camera-stream = "camera_test.main:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["camera_test"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
